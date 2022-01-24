@@ -1,0 +1,45 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <div class="card">
+        <div class="card-body text-center">CREAR ENTRADA</div>
+        <form class="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
+          <div class="mb-3">
+            <input type="text" formControlName='producto' class="form-control form-control-lg" placeholder="Identificador">
+            <div class="text-danger"
+              *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
+              <span> El nombre del Identificador <strong> es Obligatorio </strong></span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" formControlName='categoria' class="form-control form-control-lg" placeholder="Descripción">
+            <div class="text-danger"
+              *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+              <span> La Descripción <strong> es Obligatorio </strong></span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" formControlName='ubicacion' class="form-control form-control-lg" placeholder="Competencia">
+            <div class="text-danger"
+              *ngIf="productoForm.get('ubicacion')?.hasError('required') && productoForm.get('ubicacion')?.touched">
+              <span> La Competencia <strong> es Obligatorio </strong></span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="number" formControlName='precio' class="form-control form-control-lg" placeholder="Video">
+            <div class="text-danger"
+              *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
+              <span> El nombre del Video <strong> es Obligatorio </strong></span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+            <button type="submit" [disabled]=productoForm.invalid
+              class="btn btn-success btn-lg float-end">ACEPTAR</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
